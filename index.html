@@ -431,7 +431,7 @@
         </div>
       </div>
 
-      <!-- Gemini Free Coaching Urgency CTA + Share Actions -->
+      <!-- Concise 2-Line Gemini Student CTA + Share Actions -->
       <div class="space-y-2.5 mt-4">
         <a
           id="geminiCtaBtn"
@@ -440,18 +440,15 @@
           rel="noopener noreferrer"
           class="tactile-btn block w-full rounded-2xl p-4 bg-gradient-to-r from-[#1B64DA] via-[#3182F6] to-[#6366F1] text-white shadow-[0_8px_20px_-6px_rgba(49,130,246,0.52)] cursor-pointer no-underline"
         >
-          <div class="space-y-1 text-left">
+          <div class="space-y-1.5 text-left">
             <div class="flex items-center justify-between gap-2">
               <span class="inline-flex items-center gap-1 text-[10.5px] font-extrabold bg-amber-300 text-ink px-2.5 py-0.5 rounded-full">
-                ⏳ 무료 혜택 마감 임박 · 한 달 뒤면 유료 전환!
+                🎓 대학생·대학원생 무료 혜택 약 한 달 남음!
               </span>
-              <span class="text-[11px] font-extrabold text-white/90">100% 무료 →</span>
+              <span class="text-[12px] font-extrabold text-white/95">→</span>
             </div>
-            <div class="text-[15px] font-extrabold tracking-tight leading-snug pt-0.5">
-              지금 무료로 Gemini한테 실전 면접 코칭 받기
-            </div>
-            <div class="text-[11.5px] font-medium text-blue-100 leading-snug">
-              한 달 뒤 유료화 전에 자소서 첨삭·모의면접 무료로 다 챙기세요
+            <div class="text-[15px] font-extrabold tracking-tight leading-snug">
+              유료 전환 전, Gemini 면접 코칭 무료로 받기
             </div>
           </div>
         </a>
@@ -464,10 +461,10 @@
         </button>
 
         <div class="grid grid-cols-2 gap-2">
-          <button id="copyTextBtn" class="tactile-btn py-3 px-3 bg-surface hover:bg-slate-200/70 text-ink border border-slate-200 font-bold text-xs rounded-2xl flex items-center justify-center gap-1.5 cursor-pointer">
-            <span>결과 텍스트 복사하기</span>
+          <button id="saveCardBtn" type="button" class="tactile-btn py-3 px-3 bg-surface hover:bg-slate-200/70 text-ink border border-slate-200 font-bold text-xs rounded-2xl flex items-center justify-center gap-1.5 cursor-pointer">
+            <span>결과 카드 저장하기</span>
           </button>
-          <button id="retryBtn" class="tactile-btn py-3 px-3 bg-blue-50 hover:bg-blue-100/80 text-tossblue font-bold text-xs rounded-2xl flex items-center justify-center gap-1.5 cursor-pointer">
+          <button id="retryBtn" type="button" class="tactile-btn py-3 px-3 bg-blue-50 hover:bg-blue-100/80 text-tossblue font-bold text-xs rounded-2xl flex items-center justify-center gap-1.5 cursor-pointer">
             <span>다시 테스트하기</span>
           </button>
         </div>
@@ -477,15 +474,11 @@
     <!-- Toast Notification -->
     <div id="toastNotification" class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-ink/95 text-white text-xs font-bold px-4 py-3 rounded-full shadow-lg flex items-center gap-2 whitespace-nowrap animate-enter">
       <span class="text-emerald-400">✓</span>
-      <span id="toastMessage">트윗 문구가 복사되었습니다!</span>
+      <span id="toastMessage">결과 카드 이미지가 저장되었습니다!</span>
     </div>
   </main>
 
   <script>
-    /**
-     * 채용공고 번역기 : 이 회사 가도 되나요?
-     * High-Readability Edition + Gemini Free Urgency CTA
-     */
     const QUESTIONS = [
       {
         part: 'Q1 · 공고 읽을 때',
@@ -722,7 +715,6 @@
       }
     };
 
-    // Game State (Starts at 80% so players can recover up to 120%)
     let currentIndex = 0;
     let mentalHealth = 80;
     let defenseCount = 0;
@@ -730,7 +722,6 @@
     let hardTrapCount = 0;
     let currentOutcome = OUTCOMES.S;
 
-    // DOM Elements
     const startScreen = document.getElementById('startScreen');
     const gameScreen = document.getElementById('gameScreen');
     const resultScreen = document.getElementById('resultScreen');
@@ -765,7 +756,7 @@
     const nextBtnLabel = document.getElementById('nextBtnLabel');
 
     const tweetShareBtn = document.getElementById('tweetShareBtn');
-    const copyTextBtn = document.getElementById('copyTextBtn');
+    const saveCardBtn = document.getElementById('saveCardBtn');
     const retryBtn = document.getElementById('retryBtn');
     const toastNotification = document.getElementById('toastNotification');
     const toastMessage = document.getElementById('toastMessage');
@@ -938,7 +929,189 @@
 
     function getShareText() {
       const url = window.location.href;
-      return `[채용공고 번역기 : 이 회사 가도 되나요?]\n\n내 취준 생존 유형 👉 ${currentOutcome.grade} [${currentOutcome.title}]\n최종 멘탈: ${mentalHealth}% (완벽 선긋기 ${defenseCount}회 / 함정 ${hardTrapCount + softTrapCount}회)\n\n${currentOutcome.description}\n\n${url}`;
+      return `[채용공고 번역기 : 이 회사 가도 되나요?]
+
+내 취준 생존 유형 👉 ${currentOutcome.grade} [${currentOutcome.title}]
+최종 멘탈: ${mentalHealth}% (완벽 선긋기 ${defenseCount}회 / 함정 ${hardTrapCount + softTrapCount}회)
+
+${currentOutcome.description}
+
+${url}`;
+    }
+
+    function saveResultCardImage() {
+      const canvas = document.createElement('canvas');
+      canvas.width = 1080;
+      canvas.height = 1280;
+      const ctx = canvas.getContext('2d');
+
+      const gradeColors = {
+        S: { bg: '#EFF6FF', border: '#BFDBFE', text: '#3182F6', bar: '#3182F6' },
+        A: { bg: '#ECFDF5', border: '#A7F3D0', text: '#059669', bar: '#10B981' },
+        B: { bg: '#FFFBEB', border: '#FDE68A', text: '#D97706', bar: '#F59E0B' },
+        C: { bg: '#FFF1F2', border: '#FECDD3', text: '#E11D48', bar: '#EF4444' }
+      };
+      const palette = gradeColors[currentOutcome.grade[0]] || gradeColors.A;
+      const cleanDesc = currentOutcome.description.replace(/^[“"]|[”"]$/g, '');
+      const dodgeRate = Math.min(99, Math.max(8, Math.round((defenseCount * 16) + (softTrapCount * 5))));
+
+      ctx.fillStyle = '#F4F5F7';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      const pad = 64;
+      const cardW = canvas.width - pad * 2;
+      const cardH = canvas.height - pad * 2;
+      ctx.fillStyle = '#FFFFFF';
+      ctx.beginPath();
+      ctx.roundRect(pad, pad, cardW, cardH, 40);
+      ctx.fill();
+
+      ctx.strokeStyle = '#E5E8EB';
+      ctx.lineWidth = 2;
+      ctx.stroke();
+
+      ctx.fillStyle = '#8B95A1';
+      ctx.font = '700 20px Pretendard, -apple-system, sans-serif';
+      ctx.fillText('OFFICE SURVIVAL REPORT', 112, 136);
+
+      ctx.fillStyle = '#191F28';
+      ctx.font = '700 26px Pretendard, -apple-system, sans-serif';
+      ctx.fillText('채용공고 함정 감별 결과표', 112, 172);
+
+      ctx.fillStyle = palette.bg;
+      ctx.beginPath();
+      ctx.roundRect(784, 128, 184, 50, 14);
+      ctx.fill();
+      ctx.strokeStyle = palette.border;
+      ctx.stroke();
+
+      ctx.fillStyle = palette.text;
+      ctx.font = '800 24px Pretendard, -apple-system, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(currentOutcome.grade, 876, 161);
+      ctx.textAlign = 'left';
+
+      ctx.strokeStyle = '#F1F3F5';
+      ctx.beginPath();
+      ctx.moveTo(112, 208);
+      ctx.lineTo(968, 208);
+      ctx.stroke();
+
+      ctx.fillStyle = '#F4F5F7';
+      ctx.beginPath();
+      ctx.roundRect(476, 242, 128, 128, 32);
+      ctx.fill();
+      ctx.font = '64px Pretendard, -apple-system, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(currentOutcome.emoji, 540, 328);
+
+      ctx.fillStyle = palette.bg;
+      ctx.beginPath();
+      ctx.roundRect(360, 392, 360, 44, 22);
+      ctx.fill();
+      ctx.fillStyle = palette.text;
+      ctx.font = '700 22px Pretendard, -apple-system, sans-serif';
+      ctx.fillText(currentOutcome.badgeText, 540, 422);
+
+      ctx.fillStyle = '#191F28';
+      ctx.font = '800 44px Pretendard, -apple-system, sans-serif';
+      ctx.fillText(currentOutcome.title, 540, 496);
+      ctx.textAlign = 'left';
+
+      ctx.fillStyle = '#F4F5F7';
+      ctx.beginPath();
+      ctx.roundRect(112, 534, 856, 210, 28);
+      ctx.fill();
+
+      ctx.fillStyle = '#4E5968';
+      ctx.font = '600 28px Pretendard, -apple-system, sans-serif';
+      wrapLines(ctx, cleanDesc, 152, 592, 776, 44);
+
+      const boxes = [
+        { label: '완벽 선긋기', val: `${defenseCount}회`, bg: '#ECFDF5', border: '#D1FAE5', labelC: '#047857', valC: '#059669' },
+        { label: '여지 남김', val: `${softTrapCount}회`, bg: '#FFFBEB', border: '#FEF3C7', labelC: '#B45309', valC: '#D97706' },
+        { label: '프로 호구행', val: `${hardTrapCount}회`, bg: '#FFF1F2', border: '#FFE4E6', labelC: '#BE123C', valC: '#E11D48' }
+      ];
+      boxes.forEach((b, idx) => {
+        const bx = 112 + idx * 294;
+        ctx.fillStyle = b.bg;
+        ctx.beginPath();
+        ctx.roundRect(bx, 774, 268, 134, 24);
+        ctx.fill();
+        ctx.strokeStyle = b.border;
+        ctx.stroke();
+
+        ctx.textAlign = 'center';
+        ctx.fillStyle = b.labelC;
+        ctx.font = '700 22px Pretendard, -apple-system, sans-serif';
+        ctx.fillText(b.label, bx + 134, 824);
+
+        ctx.fillStyle = b.valC;
+        ctx.font = '800 38px Pretendard, -apple-system, sans-serif';
+        ctx.fillText(b.val, bx + 134, 880);
+        ctx.textAlign = 'left';
+      });
+
+      drawStatRow(ctx, 944, '최종 멘탈 잔량', `${mentalHealth}%`, Math.min(100, Math.round((mentalHealth / 120) * 100)), palette.bar);
+      drawStatRow(ctx, 1024, '호구 회피력', `${dodgeRate}%`, dodgeRate, '#3182F6');
+
+      ctx.strokeStyle = '#F1F3F5';
+      ctx.beginPath();
+      ctx.moveTo(112, 1106);
+      ctx.lineTo(968, 1106);
+      ctx.stroke();
+
+      ctx.fillStyle = '#8B95A1';
+      ctx.font = '600 22px Pretendard, -apple-system, sans-serif';
+      ctx.fillText('채용공고 번역기 : 이 회사 가도 되나요?', 112, 1152);
+      ctx.textAlign = 'right';
+      ctx.fillText('#취준생 #채용공고번역기', 968, 1152);
+      ctx.textAlign = 'left';
+
+      const link = document.createElement('a');
+      link.download = '채용공고번역기-결과카드.png';
+      link.href = canvas.toDataURL('image/png');
+      link.click();
+      showToast('결과 카드 이미지가 저장되었습니다!');
+    }
+
+    function drawStatRow(ctx, y, label, valText, pct, color) {
+      ctx.fillStyle = '#4E5968';
+      ctx.font = '700 24px Pretendard, -apple-system, sans-serif';
+      ctx.fillText(label, 112, y);
+
+      ctx.textAlign = 'right';
+      ctx.fillStyle = '#191F28';
+      ctx.font = '800 26px Pretendard, -apple-system, sans-serif';
+      ctx.fillText(valText, 968, y);
+      ctx.textAlign = 'left';
+
+      ctx.fillStyle = '#F1F3F5';
+      ctx.beginPath();
+      ctx.roundRect(112, y + 14, 856, 14, 7);
+      ctx.fill();
+
+      ctx.fillStyle = color;
+      ctx.beginPath();
+      ctx.roundRect(112, y + 14, Math.max(14, Math.round(856 * (pct / 100))), 14, 7);
+      ctx.fill();
+    }
+
+    function wrapLines(ctx, text, x, y, maxWidth, lineHeight) {
+      const words = text.split(' ');
+      let line = '';
+      let curY = y;
+      for (let i = 0; i < words.length; i++) {
+        const test = line + words[i] + ' ';
+        if (ctx.measureText(test).width > maxWidth && i > 0) {
+          ctx.fillText(line.trim(), x, curY);
+          line = words[i] + ' ';
+          curY += lineHeight;
+        } else {
+          line = test;
+        }
+      }
+      if (line.trim()) ctx.fillText(line.trim(), x, curY);
     }
 
     function copyToClipboard(text) {
@@ -951,9 +1124,8 @@
         textarea.select();
         document.execCommand('copy');
         document.body.removeChild(textarea);
-        showToast('결과 텍스트가 복사되었습니다!');
       } catch (err) {
-        showToast('복사에 실패했습니다. 화면을 캡처해 주세요!');
+        // Ignore clipboard error when opening tweet intent
       }
     }
 
@@ -1008,10 +1180,7 @@
       window.open(intentUrl, '_blank', 'noopener,noreferrer');
     });
 
-    copyTextBtn.addEventListener('click', () => {
-      copyToClipboard(getShareText());
-    });
-
+    saveCardBtn.addEventListener('click', saveResultCardImage);
     retryBtn.addEventListener('click', resetGame);
   </script>
 </body>
