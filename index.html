@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>채용공고 번역기 : 이 회사 가도 되나요?</title>
 
-  <!-- Open Graph & Twitter Card Meta Tags (배포 시 X 썸네일 미리보기용) -->
+  <!-- Open Graph & Twitter Card Meta Tags -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="채용공고 번역기 : 이 회사 가도 되나요?" />
-  <meta property="og:description" content="지원서 읽을 때, 면접 볼 때 한 번쯤 해본 그 생각! 딱 1개만 멘탈 방어고 나머지는 조용히 깎이는 6라운드 생존 테스트." />
+  <meta property="og:description" content="지원서 읽을 때, 면접 볼 때 한 번쯤 해본 그 생각! 3개 중 딱 1개만 멘탈 지키는 취준 생존 테스트." />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="채용공고 번역기 : 이 회사 가도 되나요?" />
-  <meta name="twitter:description" content="셋 다 그럴싸한 직장인 화법인데 2개는 호구 당첨 함정?! 내 취준 생존 등급 확인하기" />
+  <meta name="twitter:description" content="지원서 읽을 때, 면접 볼 때 한 번쯤 해본 그 생각! 내 취준 생존 등급 확인하기" />
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -71,13 +71,22 @@
 
     @media (min-width: 480px) {
       .app-shell {
-        min-height: 760px;
-        max-height: 850px;
+        min-height: 750px;
+        max-height: 840px;
         border-radius: 28px;
         border: 1px solid #E5E8EB;
         box-shadow: 0 20px 48px -12px rgba(25, 31, 40, 0.08);
         margin: 20px 0;
       }
+    }
+
+    /* Keyword Highlighter */
+    .hl {
+      background: linear-gradient(transparent 55%, #DBEAFE 55%);
+      color: #1D4ED8;
+      font-weight: 800;
+      padding: 0 2px;
+      border-radius: 3px;
     }
 
     /* Smooth Tactile Press */
@@ -110,11 +119,11 @@
     }
 
     @keyframes fadeSlideUp {
-      0% { opacity: 0; transform: translateY(12px); }
+      0% { opacity: 0; transform: translateY(10px); }
       100% { opacity: 1; transform: translateY(0); }
     }
     .animate-enter {
-      animation: fadeSlideUp 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      animation: fadeSlideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
     @keyframes floatDelta {
@@ -152,7 +161,7 @@
         <span class="font-bold text-ink text-[15px] tracking-tight">채용공고 번역기</span>
       </div>
       <span class="text-[11px] font-bold text-tossblue bg-blue-50 px-2.5 py-1 rounded-full">
-        HARD · 직장인 화법 함정판
+        취준 생존 감별기
       </span>
     </header>
 
@@ -163,31 +172,31 @@
         <div class="space-y-2.5 pt-1">
           <div class="inline-flex items-center gap-1.5 text-subink bg-surface text-xs font-bold px-3 py-1 rounded-full border border-slate-200/70">
             <span>🕵️</span>
-            <span>고난도 · 실전 면접 & 오피스 화법 테스트</span>
+            <span>공고 읽기 & 면접 말빨 테스트</span>
           </div>
           <h1 class="text-[28px] font-extrabold text-ink leading-[1.28] tracking-tight break-keep">
             이 회사,<br />진짜 지원해도 될까요?
           </h1>
-          <p class="text-[14px] font-medium text-subink leading-relaxed break-keep">
-            지원서 읽을 때, 면접 볼 때 한 번쯤 해본 그 생각.<br />
-            <span class="text-tossblue font-bold">딱 1개만 멘탈 방어</span>고, 나머지는 조용히 깎입니다.
+          <p class="text-[14.5px] font-medium text-subink leading-relaxed break-keep">
+            공고 볼 때, 면접 볼 때 한 번쯤 해본 그 생각.<br />
+            <span class="text-tossblue font-bold">딱 1개만 멘탈 방어</span>고, 나머지 2개는 조용히 깎입니다.
           </p>
         </div>
 
         <!-- Clean Editorial Preview Card -->
         <div class="bg-surface rounded-2xl p-5 border border-slate-200/70 space-y-3.5">
           <div class="flex items-center justify-between">
-            <span class="text-[11px] font-bold text-mutedink tracking-wide">함정 예시 미리보기</span>
-            <span class="text-[11px] font-bold text-rose-600 bg-rose-50 px-2 py-0.5 rounded-md">주의 요망</span>
+            <span class="text-[11px] font-bold text-mutedink tracking-wide">미리보기</span>
+            <span class="text-[11px] font-bold text-rose-600 bg-rose-50 px-2 py-0.5 rounded-md">함정 주의</span>
           </div>
-          <p class="text-[14px] font-bold text-ink leading-snug break-keep">
-            "야근 강요 없고 간식 무한 제공! 눈치 안 보고 일할 수 있겠네."
+          <p class="text-[15px] font-bold text-ink leading-snug break-keep">
+            “야근 강요 없고 <span class="hl">간식 무한 제공!</span> 눈치 안 보고 일할 수 있겠네.”
           </p>
           <div class="h-px bg-slate-200/80"></div>
           <div class="flex items-start gap-2.5">
             <span class="text-base leading-none mt-0.5">🚨</span>
             <p class="text-[13px] font-semibold text-subink leading-relaxed break-keep">
-              <span class="text-tossblue font-bold">현실 체크:</span> 야근을 강요하진 않지만 퇴근 전에 안 끝나는 양을 줄 수도 있어요.
+              <span class="text-tossblue font-bold">현실 체크:</span> 강요는 안 하지만 퇴근 전에 안 끝나는 양을 줄 수도 있어요.
             </p>
           </div>
         </div>
@@ -195,15 +204,15 @@
         <!-- Clean Feature Summary -->
         <div class="grid grid-cols-3 gap-2.5">
           <div class="bg-surface rounded-2xl p-3.5 border border-slate-200/60 text-center">
-            <div class="text-[11px] font-semibold text-mutedink">난이도</div>
-            <div class="text-[14px] font-extrabold text-rose-600 mt-1">매운맛 상향</div>
+            <div class="text-[11px] font-semibold text-mutedink">시작 멘탈</div>
+            <div class="text-[14px] font-extrabold text-ink mt-1">80% 출발</div>
           </div>
           <div class="bg-surface rounded-2xl p-3.5 border border-slate-200/60 text-center">
-            <div class="text-[11px] font-semibold text-mutedink">문항 구성</div>
-            <div class="text-[14px] font-extrabold text-ink mt-1">6라운드 · 3지선다</div>
+            <div class="text-[11px] font-semibold text-mutedink">정답 확률</div>
+            <div class="text-[14px] font-extrabold text-rose-600 mt-1">3개 중 딱 1개</div>
           </div>
           <div class="bg-surface rounded-2xl p-3.5 border border-slate-200/60 text-center">
-            <div class="text-[11px] font-semibold text-mutedink">멘탈 회복</div>
+            <div class="text-[11px] font-semibold text-mutedink">초회복</div>
             <div class="text-[14px] font-extrabold text-emerald-600 mt-1">최대 120%</div>
           </div>
         </div>
@@ -212,19 +221,18 @@
       <!-- Primary CTA -->
       <div class="pt-6">
         <button id="startBtn" class="tactile-btn w-full py-4 px-6 bg-tossblue hover:bg-tossdarkblue text-white font-bold text-[15px] rounded-2xl shadow-sm flex items-center justify-center gap-1.5 cursor-pointer">
-          <span>실전 함정 감별 시작하기</span>
+          <span>공고 보러 가기</span>
         </button>
         <p class="text-center text-[11px] text-mutedink font-medium mt-2.5">
-          예의 바르지만 단호하게 선을 그으면 멘탈이 초회복됩니다
+          15초 컷 · 끝나면 X(트위터) 공유용 결과 카드가 나와요
         </p>
       </div>
     </section>
 
     <!-- ==================== SCREEN 2: GAMEPLAY SCREEN ==================== -->
-    <section id="gameScreen" class="hidden flex-1 flex flex-col justify-between px-6 py-5 overflow-y-auto no-scrollbar">
-      <!-- Top Clean HUD -->
-      <div class="space-y-3">
-        <!-- Step Indicator -->
+    <section id="gameScreen" class="hidden flex-1 flex flex-col px-5 py-4 overflow-y-auto no-scrollbar">
+      <!-- Top HUD (Compact & Clean) -->
+      <div class="space-y-2.5 shrink-0">
         <div class="flex items-center justify-between gap-3">
           <span id="roundBadge" class="text-xs font-extrabold text-tossblue tabular-nums">
             01 / 06
@@ -234,9 +242,9 @@
           </div>
         </div>
 
-        <!-- Refined Mental Gauge Card -->
-        <div id="mentalBox" class="bg-surface rounded-2xl px-4 py-3 border border-slate-200/70 transition-all">
-          <div class="flex items-center justify-between mb-2">
+        <!-- Mental Gauge -->
+        <div id="mentalBox" class="bg-surface rounded-2xl px-4 py-2.5 border border-slate-200/70 transition-all">
+          <div class="flex items-center justify-between mb-1.5">
             <div class="flex items-center gap-1.5">
               <span id="mentalEmoji" class="text-sm">😐</span>
               <span class="text-xs font-bold text-subink">내 멘탈 잔량</span>
@@ -253,61 +261,65 @@
         </div>
       </div>
 
-      <!-- Center Question Card -->
-      <div id="questionCard" class="my-4 space-y-4">
-        <!-- Context Banner (Job Posting / Situation) -->
-        <div class="bg-surface rounded-2xl p-4 border border-slate-200/70 space-y-2">
-          <div class="flex items-center justify-between">
-            <span id="partTag" class="inline-block text-[11px] font-bold px-2 py-0.5 rounded-md bg-white text-tossblue border border-blue-100">
-              Q1 · 공고 읽을 때
-            </span>
-            <span id="contextSubTag" class="text-[11px] font-semibold text-mutedink">
-              조직문화 · 복지
-            </span>
+      <!-- Main Reading & Choice Area (Tighter spacing, clear hierarchy) -->
+      <div id="questionCard" class="mt-4 flex-1 flex flex-col justify-between">
+        <div>
+          <!-- Separated Job Posting / Interview Quote Card -->
+          <div class="bg-slate-50/90 rounded-2xl p-4 border border-slate-200/80 shadow-[0_2px_10px_rgba(0,0,0,0.02)]">
+            <div class="flex items-center justify-between mb-2">
+              <span id="partTag" class="inline-flex items-center gap-1 text-[11px] font-extrabold px-2.5 py-0.5 rounded-md bg-white text-tossblue border border-blue-100">
+                Q1 · 공고 읽을 때
+              </span>
+              <span id="contextSubTag" class="text-[11px] font-semibold text-mutedink">
+                조직문화 · 복지
+              </span>
+            </div>
+            <p id="contextQuote" class="text-[15.5px] font-bold text-ink leading-[1.52] tracking-tight break-keep">
+              “수평적인 분위기에서 <span class="hl">각자 주도적으로 일해요.</span> 야근 강요 전혀 없고 간식 무한 제공!”
+            </p>
           </div>
-          <p id="contextQuote" class="text-[13px] font-bold text-subink leading-snug break-keep">
-            공고: "수평적인 분위기에서 각자 주도적으로 일해요. 야근 강요 전혀 없고 간식 무한 제공!"
-          </p>
-          <h2 id="questionText" class="text-[17px] font-extrabold text-ink leading-[1.42] tracking-tight break-keep pt-0.5">
-            공고에서 이 문장 봤을 때 드는 생각은?
+
+          <!-- Clear Standalone Question Prompt -->
+          <h2 id="questionText" class="text-[17px] font-extrabold text-ink leading-snug tracking-tight break-keep mt-4 mb-3 px-0.5">
+            이 문장 봤을 때 드는 생각은?
           </h2>
+
+          <!-- Scannable, Concise 3 Choices (No heavy quotes, spacious line-height) -->
+          <div class="space-y-2.5" id="choicesContainer">
+            <button id="choiceABtn" class="tactile-btn w-full text-left px-4 py-3.5 rounded-2xl border border-slate-200 hover:border-tossblue bg-white hover:bg-blue-50/30 shadow-[0_1px_4px_rgba(0,0,0,0.02)] cursor-pointer group">
+              <div class="flex items-start gap-3">
+                <span class="w-6 h-6 rounded-full bg-slate-100 group-hover:bg-tossblue group-hover:text-white text-subink font-extrabold text-xs flex items-center justify-center shrink-0 mt-0.5 transition-colors">A</span>
+                <span id="choiceAText" class="text-[14px] font-semibold text-ink leading-[1.48] break-keep">
+                  선택지 A
+                </span>
+              </div>
+            </button>
+
+            <button id="choiceBBtn" class="tactile-btn w-full text-left px-4 py-3.5 rounded-2xl border border-slate-200 hover:border-tossblue bg-white hover:bg-blue-50/30 shadow-[0_1px_4px_rgba(0,0,0,0.02)] cursor-pointer group">
+              <div class="flex items-start gap-3">
+                <span class="w-6 h-6 rounded-full bg-slate-100 group-hover:bg-tossblue group-hover:text-white text-subink font-extrabold text-xs flex items-center justify-center shrink-0 mt-0.5 transition-colors">B</span>
+                <span id="choiceBText" class="text-[14px] font-semibold text-ink leading-[1.48] break-keep">
+                  선택지 B
+                </span>
+              </div>
+            </button>
+
+            <button id="choiceCBtn" class="tactile-btn w-full text-left px-4 py-3.5 rounded-2xl border border-slate-200 hover:border-tossblue bg-white hover:bg-blue-50/30 shadow-[0_1px_4px_rgba(0,0,0,0.02)] cursor-pointer group">
+              <div class="flex items-start gap-3">
+                <span class="w-6 h-6 rounded-full bg-slate-100 group-hover:bg-tossblue group-hover:text-white text-subink font-extrabold text-xs flex items-center justify-center shrink-0 mt-0.5 transition-colors">C</span>
+                <span id="choiceCText" class="text-[14px] font-semibold text-ink leading-[1.48] break-keep">
+                  선택지 C
+                </span>
+              </div>
+            </button>
+          </div>
         </div>
 
-        <!-- Clean 3 Choice Cards -->
-        <div class="space-y-2.5" id="choicesContainer">
-          <button id="choiceABtn" class="tactile-btn w-full text-left p-3.5 rounded-2xl border border-slate-200 hover:border-tossblue bg-white hover:bg-blue-50/30 shadow-[0_2px_8px_rgba(0,0,0,0.02)] cursor-pointer group">
-            <div class="flex items-start gap-3">
-              <span class="w-6 h-6 rounded-full bg-slate-100 group-hover:bg-tossblue group-hover:text-white text-subink font-bold text-xs flex items-center justify-center shrink-0 mt-0.5 transition-colors">A</span>
-              <span id="choiceAText" class="text-[13.5px] font-semibold text-ink leading-snug break-keep">
-                선택지 A 텍스트
-              </span>
-            </div>
-          </button>
-
-          <button id="choiceBBtn" class="tactile-btn w-full text-left p-3.5 rounded-2xl border border-slate-200 hover:border-tossblue bg-white hover:bg-blue-50/30 shadow-[0_2px_8px_rgba(0,0,0,0.02)] cursor-pointer group">
-            <div class="flex items-start gap-3">
-              <span class="w-6 h-6 rounded-full bg-slate-100 group-hover:bg-tossblue group-hover:text-white text-subink font-bold text-xs flex items-center justify-center shrink-0 mt-0.5 transition-colors">B</span>
-              <span id="choiceBText" class="text-[13.5px] font-semibold text-ink leading-snug break-keep">
-                선택지 B 텍스트
-              </span>
-            </div>
-          </button>
-
-          <button id="choiceCBtn" class="tactile-btn w-full text-left p-3.5 rounded-2xl border border-slate-200 hover:border-tossblue bg-white hover:bg-blue-50/30 shadow-[0_2px_8px_rgba(0,0,0,0.02)] cursor-pointer group">
-            <div class="flex items-start gap-3">
-              <span class="w-6 h-6 rounded-full bg-slate-100 group-hover:bg-tossblue group-hover:text-white text-subink font-bold text-xs flex items-center justify-center shrink-0 mt-0.5 transition-colors">C</span>
-              <span id="choiceCText" class="text-[13.5px] font-semibold text-ink leading-snug break-keep">
-                선택지 C 텍스트
-              </span>
-            </div>
-          </button>
-        </div>
+        <!-- Subtle Bottom Hint -->
+        <p class="text-center text-[11.5px] font-medium text-mutedink pt-4 pb-1">
+          3개 중 딱 1개만 멘탈 회복, 나머지 2개는 함정입니다
+        </p>
       </div>
-
-      <!-- Subtle Bottom Hint -->
-      <p class="text-center text-[11.5px] font-medium text-mutedink pb-1">
-        셋 다 정상적인 대답 같지만, 두 개는 호구 당첨 함정입니다
-      </p>
 
       <!-- Clean Bottom Sheet Feedback -->
       <div id="feedbackOverlay" class="hidden absolute inset-0 bg-slate-900/45 backdrop-blur-[2px] z-30 flex items-end justify-center p-4">
@@ -315,24 +327,24 @@
           <div class="flex items-center justify-between mb-3">
             <div class="flex items-center gap-2">
               <span id="feedbackIcon" class="text-xl">💡</span>
-              <span id="feedbackHeaderLabel" class="text-xs font-extrabold text-ink">번역기 팩트 해독</span>
+              <span id="feedbackHeaderLabel" class="text-xs font-extrabold text-ink">번역기 팩트 체크</span>
             </div>
             <span id="feedbackMentalPill" class="text-xs font-extrabold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-600">
-              핵심 체크 완료 (+12%)
+              멘탈 방어 (+12%)
             </span>
           </div>
 
           <div class="bg-surface p-4 rounded-2xl border border-slate-200/70 mb-4 space-y-2">
-            <p id="feedbackSummaryTitle" class="text-[13px] font-extrabold text-ink">
+            <p id="feedbackSummaryTitle" class="text-[13.5px] font-extrabold text-ink leading-snug break-keep">
               숨은 의도 해석
             </p>
             <p id="feedbackText" class="text-[13.5px] font-medium text-subink leading-relaxed break-keep">
-              해설 텍스트가 여기에 표시됩니다.
+              해설 텍스트
             </p>
           </div>
 
           <button id="nextQuestionBtn" class="tactile-btn w-full py-3.5 px-5 bg-ink hover:bg-slate-800 text-white font-bold text-[14px] rounded-2xl flex items-center justify-center gap-1.5 cursor-pointer">
-            <span id="nextBtnLabel">다음 공고 보기</span>
+            <span id="nextBtnLabel">다음 상황 보기</span>
           </button>
         </div>
       </div>
@@ -391,7 +403,6 @@
 
         <!-- Clean Stat Bars -->
         <div class="mt-4 space-y-2.5 pt-1">
-          <!-- Stat 1 -->
           <div>
             <div class="flex justify-between text-xs font-bold mb-1">
               <span class="text-subink">최종 멘탈 잔량</span>
@@ -402,7 +413,6 @@
             </div>
           </div>
 
-          <!-- Stat 2 -->
           <div>
             <div class="flex justify-between text-xs font-bold mb-1">
               <span class="text-subink">호구 회피력</span>
@@ -451,204 +461,204 @@
   <script>
     /**
      * 채용공고 번역기 : 이 회사 가도 되나요?
-     * Hard Mode - Natural Korean Thoughts & Interview Answers (3-Choice, Only 1 Defense Option per Round)
+     * High-Readability Edition (Highlighted keywords + Concise 2-line choices)
      */
     const QUESTIONS = [
       {
         part: 'Q1 · 공고 읽을 때',
         subTag: '조직문화 · 복지',
-        contextQuote: '공고: "수평적인 분위기에서 각자 주도적으로 일해요. 야근 강요 전혀 없고 간식 무한 제공!"',
-        question: '공고에서 이 문장 봤을 때 드는 생각은?',
+        contextHtml: '“수평적인 분위기에서 <span class="hl">각자 주도적으로 일해요.</span> 야근 강요 전혀 없고 간식 무한 제공!”',
+        question: '이 문장 봤을 때 가장 먼저 드는 생각은?',
         choiceA: {
-          text: '"눈치 안 보고 일할 수 있겠네! 자소서에 혼자서도 알아서 척척 잘한다는 내용을 좀 더 넣어야겠다."',
+          text: '눈치 안 보고 일할 수 있겠네! 자소서에 혼자서도 알아서 척척 잘한다고 적어야지.',
           type: 'hardTrap',
           mentalDelta: -18,
           pillText: '사수 실종 주의 (-18%)',
           emoji: '😵‍💫',
-          summaryTitle: '번역: "신입한테 알려줄 사수나 매뉴얼이 없을 수도 있어요"',
+          summaryTitle: '번역: “신입한테 알려줄 사수나 매뉴얼이 없을 수도 있어요”',
           commentary: '‘주도적으로 일해요’는 신입 혼자 맨땅에 헤딩해야 하는 환경일 때 자주 쓰여요. 첫날부터 뭘 해야 할지 몰라 당황할 수 있습니다.'
         },
         choiceB: {
-          text: '"분위기는 자유로워 보이는데 신입 교육이 따로 있는지는 모르겠네. 면접 가면 사수가 있는지부터 물어봐야지."',
+          text: '분위기는 자유로워 보이는데 신입 교육이 있는지는 모르겠네. 면접 가서 사수 유무부터 물어봐야지.',
           type: 'defense',
           mentalDelta: +12,
           pillText: '핵심 체크 완료 (+12%)',
           emoji: '🛡️',
-          summaryTitle: '번역: "분위기보다 실제로 가르쳐줄 사람이 있는지 먼저 확인!"',
+          summaryTitle: '번역: “분위기보다 실제로 가르쳐줄 사람이 있는지 먼저 확인!”',
           commentary: '딱 맞게 짚었어요! 달콤한 분위기 설명에 넘어가기보다 ‘실제로 일 가르쳐줄 사수나 교육 체계가 있는지’부터 확인해서 멘탈을 지켰습니다.'
         },
         choiceC: {
-          text: '"야근 강요도 없고 간식까지 챙겨준다니 복지 괜찮네. 여기 합격하면 진짜 열심히 다녀야겠다."',
+          text: '야근 강요도 없고 간식까지 챙겨준다니 복지 괜찮네. 합격하면 진짜 열심히 다녀야겠다.',
           type: 'softTrap',
           mentalDelta: -15,
           pillText: '간식 떡밥 함정 (-15%)',
           emoji: '🍪',
-          summaryTitle: '번역: "야근은 강요 안 하지만 퇴근 전에 안 끝나는 양을 줍니다"',
-          commentary: '야근을 강요하진 않지만 업무량이 많아서 남게 되는 경우가 많아요. 탕비실에 컵라면과 에너지음료가 쌓여 있다면 한 번쯤 의심해 봐야 합니다.'
+          summaryTitle: '번역: “야근 강요는 안 하지만 퇴근 전에 안 끝나는 양을 줍니다”',
+          commentary: '야근을 강요하진 않지만 업무량이 많아서 남게 되는 경우가 많아요. 탕비실에 컵라면이 쌓여 있다면 한 번쯤 의심해 봐야 합니다.'
         }
       },
       {
         part: 'Q2 · 공고 읽을 때',
         subTag: '연봉 · 처우',
-        contextQuote: '공고: "연봉은 면접 후 협의(회사 내규에 따름), 성과에 따라 인센티브 별도 지급"',
-        question: '지원 버튼 누르기 전 머릿속에 스치는 생각은?',
+        contextHtml: '“연봉은 <span class="hl">면접 후 협의(회사 내규에 따름)</span>, 성과에 따라 인센티브 별도 지급”',
+        question: '지원 버튼 누르기 전 스치는 현실적인 생각은?',
         choiceA: {
-          text: '"인센티브는 안 나올 수도 있으니까 기본급이 얼만지랑 야근수당 포함인지부터 정확히 확인해야겠다."',
+          text: '인센티브는 안 나올 수도 있으니, 기본급이 얼만지랑 야근수당 포함인지부터 정확히 봐야겠다.',
           type: 'defense',
           mentalDelta: +12,
           pillText: '조건 확인 완료 (+12%)',
           emoji: '💰',
-          summaryTitle: '번역: "말뿐인 성과급 말고 매달 찍히는 기본급·수당부터 보자"',
+          summaryTitle: '번역: “말뿐인 성과급 말고 매달 찍히는 기본급·수당부터 보자”',
           commentary: '현실적인 판단이에요! 인센티브는 회사 사정에 따라 달라질 수 있지만 기본급과 수당은 매달 통장에 들어오는 진짜 조건이거든요.'
         },
         choiceB: {
-          text: '"일단은 서류랑 면접 붙는 게 먼저지. 연봉 얘기는 최종합격 연락 오면 그때 조율해도 늦지 않을 거야."',
+          text: '일단은 서류랑 면접 붙는 게 먼저지. 연봉 얘기는 최종합격 연락 오면 그때 조율해도 늦지 않을 거야.',
           type: 'softTrap',
           mentalDelta: -15,
           pillText: '협상 타이밍 놓침 (-15%)',
           emoji: '🫠',
-          summaryTitle: '번역: "합격 통보받고 나면 이미 정해진 조건 바꾸기 어려워요"',
+          summaryTitle: '번역: “합격 통보받고 나면 이미 정해진 조건 바꾸기 어려워요”',
           commentary: '합격 후에 연봉을 조율하려 하면 선택지가 확 줄어듭니다. 면접 단계에서 대략적인 연봉 범위나 처우 기준을 꼭 체크하는 게 좋아요.'
         },
         choiceC: {
-          text: '"신입 때부터 돈 너무 따지면 안 좋게 볼 수도 있으니까, 내규에 맞춘다고 하고 일 잘해서 인센티브로 받아야지."',
+          text: '신입 때부터 돈 따지면 안 좋게 볼 수도 있으니까, 내규에 맞춘다고 하고 성과 내서 인센티브로 받아야지.',
           type: 'hardTrap',
           mentalDelta: -20,
           pillText: '열정페이 주의보 (-20%)',
           emoji: '📉',
-          summaryTitle: '번역: "돈 얘기 안 꺼내면 회사도 굳이 더 챙겨주지 않아요"',
+          summaryTitle: '번역: “돈 얘기 안 꺼내면 회사도 굳이 더 챙겨주지 않아요”',
           commentary: '내규에만 맞추다 보면 생각보다 낮은 시작 연봉으로 출발할 수 있어요. 내 기준과 처우를 확인하는 건 당연한 권리입니다.'
         }
       },
       {
         part: 'Q3 · 공고 읽을 때',
         subTag: '직무 · 자격요건',
-        contextQuote: '공고: "빠르게 변하는 시장에 맞춰 유연하게 소통하고 다양한 업무를 경험해보고 싶은 분"',
-        question: '이 줄을 읽고 지원할지 말지 고민할 때 드는 생각은?',
+        contextHtml: '“빠르게 변하는 시장에 맞춰 <span class="hl">유연하게 소통하고 다양한 업무를 경험</span>해보고 싶은 분”',
+        question: '이 줄을 읽고 지원 고민할 때 드는 생각은?',
         choiceA: {
-          text: '"여러 일을 두루두루 배울 수 있는 기회네! 시키는 일이면 뭐든 가리지 않고 다 해보겠다고 해야겠다."',
+          text: '여러 일을 두루 배울 수 있는 기회네! 시키는 일이면 뭐든 가리지 않고 다 해보겠다고 해야겠다.',
           type: 'hardTrap',
           mentalDelta: -20,
           pillText: '잡무 당첨 예감 (-20%)',
           emoji: '📦',
-          summaryTitle: '번역: "내 직무 말고도 다른 팀 일이나 잡일까지 다 맡게 될 수도"',
+          summaryTitle: '번역: “내 직무 말고도 다른 팀 일이나 잡일까지 떠맡을 수도”',
           commentary: '‘다양한 업무 경험’은 듣기 좋지만, 실제로는 정해진 역할 없이 이것저것 떠맡게 되는 경우가 적지 않습니다.'
         },
         choiceB: {
-          text: '"피드백이 자주 바뀌는 곳인가 보다. 중간에 방향이 수정돼도 스트레스 안 받고 빠르게 다시 맞추는 편이라고 해야지."',
+          text: '피드백이 자주 바뀌는 곳인가 보다. 중간에 방향이 수정돼도 스트레스 안 받고 잘 맞춘다고 어필해야지.',
           type: 'softTrap',
           mentalDelta: -15,
           pillText: '기획 변경 수용 (-15%)',
           emoji: '🔄',
-          summaryTitle: '번역: "퇴근 직전에 방향 바뀌어도 군말 없이 다시 하는 각"',
+          summaryTitle: '번역: “퇴근 직전에 방향 바뀌어도 군말 없이 다시 하는 각”',
           commentary: '유연함도 좋지만, 방향이 계속 바뀌면 일한 만큼 성과가 안 쌓여서 금방 지치게 됩니다. 업무가 얼마나 안정적인지도 봐야 해요.'
         },
         choiceC: {
-          text: '"업무 범위가 넓을 것 같으니, 내가 주로 맡게 될 핵심 업무 비중이 어느 정도인지 면접에서 꼭 물어봐야겠다."',
+          text: '업무 범위가 넓을 것 같으니, 내가 주로 맡게 될 핵심 업무 비중이 어느 정도인지 면접에서 물어봐야겠다.',
           type: 'defense',
           mentalDelta: +12,
           pillText: '업무 범위 방어 (+12%)',
           emoji: '🎯',
-          summaryTitle: '번역: "잡일만 하다 끝나지 않게 내가 집중할 메인 업무부터 확인"',
+          summaryTitle: '번역: “잡일만 하다 끝나지 않게 내가 집중할 메인 업무부터 확인”',
           commentary: '깔끔한 선택이에요! 내가 실제로 어떤 일을 주로 하게 되는지 확인해 두면 헛수고와 멘탈 소모를 줄일 수 있습니다.'
         }
       },
       {
         part: 'Q4 · 면접 볼 때',
         subTag: '압박 · 태도 질문',
-        contextQuote: '면접관: "저희 팀이 성수기엔 좀 바쁜 편인데, 가끔 야근이나 주말 대응이 생겨도 괜찮으실까요?"',
-        question: '면접장에서 가장 자연스럽고 똑똑하게 답하는 말은?',
+        contextHtml: '면접관: “저희 팀이 성수기엔 좀 바쁜 편인데, <span class="hl">가끔 야근이나 주말 대응</span>이 생겨도 괜찮으실까요?”',
+        question: '면접장에서 가장 똑똑하게 받아치는 대답은?',
         choiceA: {
-          text: '"네, 전혀 문제없습니다! 신입인 만큼 시간이나 요일에 상관없이 팀에 필요한 일이면 언제든 맞추겠습니다."',
+          text: '네, 전혀 문제없습니다! 신입인 만큼 시간이나 요일에 상관없이 팀에 필요한 일이면 언제든 맞추겠습니다.',
           type: 'hardTrap',
           mentalDelta: -20,
           pillText: '무제한 야근 승낙 (-20%)',
           emoji: '⏰',
-          summaryTitle: '번역: "언제든 부르면 나오겠습니다라는 백지위임장"',
+          summaryTitle: '번역: “언제든 부르면 나오겠습니다라는 백지위임장”',
           commentary: '‘언제든 맞추겠다’고 하면 바쁜 시기가 길어져도 선을 긋기 어려워집니다. 성의는 보이되 기준은 챙기는 게 좋아요.'
         },
         choiceB: {
-          text: '"네, 성수기처럼 꼭 필요한 일정이라면 당연히 함께하겠습니다. 혹시 그런 기간에는 대체휴무나 수당 제도가 어떻게 운영되나요?"',
+          text: '네, 꼭 필요한 일정이라면 함께하겠습니다. 혹시 그런 기간엔 대체휴무나 수당 제도가 어떻게 운영되나요?',
           type: 'defense',
           mentalDelta: +12,
           pillText: '우아한 선긋기 (+12%)',
           emoji: '🛡️',
-          summaryTitle: '번역: "일할 땐 일하더라도 휴무·수당 기준은 정확히 확인"',
+          summaryTitle: '번역: “일할 땐 일하더라도 휴무·수당 기준은 정확히 확인”',
           commentary: '협조적인 태도를 먼저 보여주면서 휴무나 수당 제도까지 자연스럽게 물어본 아주 좋은 답변입니다!'
         },
         choiceC: {
-          text: '"음… 평소 제 개인 시간이나 워라밸도 중요하게 생각하는 편이라, 야근은 최대한 안 하는 방향으로 일하고 싶습니다."',
+          text: '음… 평소 제 개인 시간이나 워라밸도 중요하게 생각하는 편이라, 야근은 최대한 안 하는 방향으로 일하고 싶습니다.',
           type: 'softTrap',
           mentalDelta: -15,
           pillText: '분위기 급냉각 (-15%)',
           emoji: '🧊',
-          summaryTitle: '번역: "바쁜 상황 대응 질문에 너무 딱 잘라버린 느낌"',
+          summaryTitle: '번역: “바쁜 상황 대응 질문에 너무 딱 잘라버린 느낌”',
           commentary: '본인 생각을 솔직하게 말한 건 맞지만, 면접 자리에서 너무 단칼에 선을 그으면 융통성이 부족해 보일 수 있어요.'
         }
       },
       {
         part: 'Q5 · 면접 볼 때',
         subTag: '협업 · 경험 질문',
-        contextQuote: '면접관: "이 프로젝트는 혼자 하신 게 아니라 팀으로 하셨네요? 본인이 실제로 한 게 얼마나 되나요?"',
+        contextHtml: '면접관: “이 프로젝트는 팀으로 하셨네요? <span class="hl">본인이 실제로 한 게 얼마나 되나요?</span>”',
         question: '당황하지 않고 내 몫을 깔끔하게 말하는 대답은?',
         choiceA: {
-          text: '"팀원들이랑 같이 하긴 했는데, 사실 제가 자료 조사부터 발표 준비까지 거의 다 맡아서 실질적으로는 제가 주도했습니다."',
+          text: '같이 하긴 했는데, 사실 제가 자료 조사부터 발표 준비까지 거의 다 맡아서 실질적으로는 제가 주도했습니다.',
           type: 'softTrap',
           mentalDelta: -15,
           pillText: '협업 감점 주의 (-15%)',
           emoji: '😬',
-          summaryTitle: '번역: "남 탓하는 것처럼 들릴 수 있는 아슬아슬한 말투"',
+          summaryTitle: '번역: “남 탓하는 것처럼 들릴 수 있는 아슬아슬한 말투”',
           commentary: '내 역할을 강조하려다 팀원들 몫을 줄여 말하면, 같이 일할 때 소통이 어색할 것 같다는 인상을 줄 수 있습니다.'
         },
         choiceB: {
-          text: '"네, 다 같이 의견을 모아서 진행한 거라 제 개인 성과라기보다는 팀원들 도움이 커서 좋은 결과가 나왔던 것 같습니다."',
+          text: '다 같이 의견을 모아서 진행한 거라 제 개인 성과라기보다는 팀원들 도움이 커서 좋은 결과가 나왔습니다.',
           type: 'hardTrap',
           mentalDelta: -18,
           pillText: '겸손 과다 손해 (-18%)',
           emoji: '🙈',
-          summaryTitle: '번역: "착해 보이지만 내가 뭘 했는지 하나도 안 남는 대답"',
+          summaryTitle: '번역: “착해 보이지만 내가 뭘 했는지 하나도 안 남는 대답”',
           commentary: '겸손해 보일 수는 있지만, 면접관 입장에서는 정작 지원자가 어떤 부분을 직접 해냈는지 알기 어렵습니다.'
         },
         choiceC: {
-          text: '"전체 기획 방향은 함께 잡았고, 그중에서 저는 데이터 정리와 핵심 화면 구성을 맡아서 끝까지 완성했습니다."',
+          text: '전체 방향은 함께 잡았고, 그중에서 저는 데이터 정리와 핵심 화면 구성을 맡아 끝까지 완성했습니다.',
           type: 'defense',
           mentalDelta: +12,
           pillText: '역할 명확 어필 (+12%)',
           emoji: '✨',
-          summaryTitle: '번역: "팀 호흡도 챙기면서 내가 직접 한 일만 딱 정리해서 말함"',
+          summaryTitle: '번역: “팀 호흡도 챙기면서 내가 직접 한 일만 딱 정리해서 말함”',
           commentary: '팀워크도 인정하면서 내가 실제로 손댄 부분을 분명하게 말한 깔끔한 답변입니다!'
         }
       },
       {
         part: 'Q6 · 면접 볼 때',
         subTag: '마지막 질문',
-        contextQuote: '면접관: "마지막으로 저희 회사에 궁금한 점 있으면 편하게 질문해 주세요."',
-        question: '분위기 무난하게 지키면서 진짜 회사 속사정도 엿보는 질문은?',
+        contextHtml: '면접관: “마지막으로 저희 회사에 <span class="hl">궁금한 점 있으면 편하게 질문</span>해 주세요.”',
+        question: '분위기 지키면서 진짜 회사 속사정도 엿보는 질문은?',
         choiceA: {
-          text: '"오늘 면접 보면서 분위기가 너무 좋아 보였는데, 입사하게 되면 어떤 마음가짐으로 일하면 좋을까요?"',
+          text: '오늘 면접 보면서 분위기가 너무 좋아 보였는데, 입사하게 되면 어떤 마음가짐으로 일하면 좋을까요?',
           type: 'softTrap',
           mentalDelta: -15,
           pillText: '알맹이 부족 (-15%)',
           emoji: '🫧',
-          summaryTitle: '번역: "무난하긴 한데 내가 얻어가는 정보가 없는 질문"',
+          summaryTitle: '번역: “무난하긴 한데 내가 얻어가는 정보가 없는 질문”',
           commentary: '분위기는 좋게 끝나겠지만, 막상 내가 이 회사에 가도 될지 판단할 만한 실질적인 정보는 얻기 어렵습니다.'
         },
         choiceB: {
-          text: '"제가 합류하게 되면 입사 후 첫 한 달 동안 가장 먼저 적응하고 챙겨야 할 일은 무엇일까요?"',
+          text: '제가 합류하게 되면 입사 후 첫 한 달 동안 가장 먼저 적응하고 해결해야 할 일은 무엇일까요?',
           type: 'defense',
           mentalDelta: +12,
           pillText: '실속 정보 획득 (+12%)',
           emoji: '🔍',
-          summaryTitle: '번역: "입사 초반 업무 강도와 팀 분위기를 자연스럽게 파악"',
+          summaryTitle: '번역: “입사 초반 업무 강도와 팀 분위기를 자연스럽게 파악”',
           commentary: '의욕도 보이면서 첫 달에 어떤 일이 몰리는지, 팀이 얼마나 체계적인지까지 엿볼 수 있는 똑똑한 질문입니다!'
         },
         choiceC: {
-          text: '"솔직히 이 직무 퇴사율이 높은 편인지, 그리고 평균 퇴근 시간이 몇 시쯤인지 편하게 말씀해 주실 수 있나요?"',
+          text: '솔직히 이 직무 퇴사율이 높은 편인지, 그리고 평균 퇴근 시간이 몇 시쯤인지 편하게 말씀해 주실 수 있나요?',
           type: 'hardTrap',
           mentalDelta: -18,
           pillText: '분위기 당황 주의 (-18%)',
           emoji: '🚨',
-          summaryTitle: '번역: "궁금한 건 맞지만 면접 자리에서 너무 직구로 던진 질문"',
+          summaryTitle: '번역: “궁금한 건 맞지만 면접 자리에서 너무 직구로 던진 질문”',
           commentary: '알고 싶은 마음은 당연하지만, 면접관 앞에서 퇴사율을 대놓고 물으면 분위기가 딱딱해질 수 있습니다.'
         }
       }
@@ -661,8 +671,7 @@
         title: '합법적 빤스런 마스터',
         emoji: '🏃💨',
         stampColor: 'border-blue-200 bg-blue-50 text-tossblue',
-        description: '"그럴싸한 직장인 화법 뒤에 숨은 야근과 책임 전가 냄새를 귀신같이 맡는 인간 탐지기. 예의는 다 차리면서 제 몫은 칼같이 챙깁니다."',
-        dodgeRate: 96
+        description: '“공고 문장 하나, 면접관 질문 하나도 허투루 넘기지 않는 현실파! 예의는 다 차리면서 내 시간과 조건은 칼같이 챙기는 타입입니다.”'
       },
       A: {
         grade: 'A등급',
@@ -670,8 +679,7 @@
         title: '우아한 직장인 방어술사',
         emoji: '🛡️😎',
         stampColor: 'border-emerald-200 bg-emerald-50 text-emerald-700',
-        description: '"적당한 사회성과 단호한 선긋기를 겸비한 밸런스형 인재. 가끔 여지를 남겨 피곤할 때도 있지만 결정적인 호구 계약은 절대 안 당합니다."',
-        dodgeRate: 78
+        description: '“웬만한 함정은 다 걸러냈지만 중간중간 착한 사람 콤플렉스가 살짝 올라옵니다. ‘네, 맞추겠습니다’ 하기 전에 3초만 더 고민해 보세요!”'
       },
       B: {
         grade: 'B등급',
@@ -679,8 +687,7 @@
         title: '울면서 야근하는 프로 일잘러',
         emoji: '🥲☕',
         stampColor: 'border-amber-200 bg-amber-50 text-amber-700',
-        description: '"거절을 못 해서 \'일정에 무리 없는 선에서 해볼게요\'라고 했다가 주말까지 노트북을 켜는 타입. 탕비실 카누 믹스커피로 연명할 운명입니다."',
-        dodgeRate: 45
+        description: '“분명 정상적으로 대답했는데 정신 차려보면 내 몫만 늘어나 있는 타입! 좋은 게 좋은 거지 하고 넘어가다 야근 당첨되기 딱 좋습니다.”'
       },
       C: {
         grade: 'C등급',
@@ -688,8 +695,7 @@
         title: '순수 100% 열정페이 꿈나무',
         emoji: '🌱😇',
         stampColor: 'border-rose-200 bg-rose-50 text-rose-600',
-        description: '"면접관이 가장 사랑하는 예스맨! 의욕 넘치게 대답했다가 잡무·포괄임금·독박 업무 풀코스에 당첨되었습니다. 계약서 도장 찍기 전에 친구 검열 필수!"',
-        dodgeRate: 15
+        description: '“공고의 달콤한 말들을 100% 진심으로 받아들였습니다. 입사 지원 버튼 누르기 전에 이 결과를 친구한테 보내서 꼭 검열받으세요!”'
       }
     };
 
@@ -741,7 +747,6 @@
     const toastNotification = document.getElementById('toastNotification');
     const toastMessage = document.getElementById('toastMessage');
 
-    // Floating Delta Badge Reaction
     function spawnFloatingDelta(delta, event) {
       const el = document.createElement('div');
       el.className = 'floating-delta shadow-sm';
@@ -764,7 +769,6 @@
       setTimeout(() => el.remove(), 850);
     }
 
-    // Update Mental Health Gauge UI (0% ~ 120% Overcharge)
     function updateMentalUI(delta = 0) {
       mentalHealth = Math.max(0, Math.min(120, mentalHealth + delta));
       mentalValueText.textContent = `${mentalHealth}%`;
@@ -813,7 +817,6 @@
       }
     }
 
-    // Load Current Question
     function renderQuestion() {
       const q = QUESTIONS[currentIndex];
       const numStr = String(currentIndex + 1).padStart(2, '0');
@@ -823,7 +826,7 @@
 
       partTag.textContent = q.part;
       contextSubTag.textContent = q.subTag;
-      contextQuote.textContent = q.contextQuote;
+      contextQuote.innerHTML = q.contextHtml;
       questionText.textContent = q.question;
 
       choiceAText.textContent = q.choiceA.text;
@@ -836,7 +839,6 @@
       card.classList.add('animate-enter');
     }
 
-    // Handle Choice Selection
     function handleChoice(choiceKey, event) {
       const q = QUESTIONS[currentIndex];
       const chosen = choiceKey === 'A' ? q.choiceA : choiceKey === 'B' ? q.choiceB : q.choiceC;
@@ -848,7 +850,6 @@
       spawnFloatingDelta(chosen.mentalDelta, event);
       updateMentalUI(chosen.mentalDelta);
 
-      // Populate Feedback Bottom Sheet
       feedbackIcon.textContent = chosen.emoji;
       feedbackSummaryTitle.textContent = chosen.summaryTitle;
       feedbackText.textContent = chosen.commentary;
@@ -856,36 +857,29 @@
 
       if (chosen.type === 'defense') {
         feedbackMentalPill.className = 'text-xs font-extrabold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-600 border border-emerald-200/70';
-        feedbackSummaryTitle.className = 'text-[13px] font-extrabold text-emerald-700';
+        feedbackSummaryTitle.className = 'text-[13.5px] font-extrabold text-emerald-700 leading-snug break-keep';
       } else if (chosen.type === 'softTrap') {
         feedbackMentalPill.className = 'text-xs font-extrabold px-2.5 py-1 rounded-full bg-amber-50 text-amber-700 border border-amber-200/70';
-        feedbackSummaryTitle.className = 'text-[13px] font-extrabold text-amber-700';
+        feedbackSummaryTitle.className = 'text-[13.5px] font-extrabold text-amber-700 leading-snug break-keep';
       } else {
         feedbackMentalPill.className = 'text-xs font-extrabold px-2.5 py-1 rounded-full bg-rose-50 text-rose-600 border border-rose-200/70';
-        feedbackSummaryTitle.className = 'text-[13px] font-extrabold text-rose-600';
+        feedbackSummaryTitle.className = 'text-[13.5px] font-extrabold text-rose-600 leading-snug break-keep';
       }
 
       nextBtnLabel.textContent = currentIndex === QUESTIONS.length - 1
         ? '내 최종 생존 등급 확인하기'
-        : '다음 공고 보기';
+        : '다음 상황 보기';
 
       feedbackOverlay.classList.remove('hidden');
     }
 
-    // Determine Result Rank based on Final Mental HP
     function calculateOutcome() {
-      if (mentalHealth >= 100) {
-        return OUTCOMES.S;
-      } else if (mentalHealth >= 70) {
-        return OUTCOMES.A;
-      } else if (mentalHealth >= 35) {
-        return OUTCOMES.B;
-      } else {
-        return OUTCOMES.C;
-      }
+      if (mentalHealth >= 100) return OUTCOMES.S;
+      if (mentalHealth >= 70) return OUTCOMES.A;
+      if (mentalHealth >= 35) return OUTCOMES.B;
+      return OUTCOMES.C;
     }
 
-    // Render Final Result Screen
     function showResult() {
       currentOutcome = calculateOutcome();
 
@@ -898,12 +892,10 @@
       document.getElementById('resultTitle').textContent = currentOutcome.title;
       document.getElementById('resultDescription').textContent = currentOutcome.description;
 
-      // Trap / Defense Counters
       document.getElementById('defenseCountText').textContent = `${defenseCount}회`;
       document.getElementById('softTrapCountText').textContent = `${softTrapCount}회`;
       document.getElementById('hardTrapCountText').textContent = `${hardTrapCount}회`;
 
-      // Stat Bars
       document.getElementById('statMentalText').textContent = `${mentalHealth}%`;
       const mentalVisualPct = Math.min(100, Math.round((mentalHealth / 120) * 100));
       document.getElementById('statMentalBar').style.width = `${mentalVisualPct}%`;
@@ -914,7 +906,6 @@
           : 'h-full bg-rose-500 rounded-full';
 
       const dynamicDodgeRate = Math.min(99, Math.max(8, Math.round((defenseCount * 16) + (softTrapCount * 5))));
-      currentOutcome.computedDodge = dynamicDodgeRate;
       document.getElementById('statDodgeText').textContent = `${dynamicDodgeRate}%`;
       document.getElementById('statDodgeBar').style.width = `${dynamicDodgeRate}%`;
 
@@ -922,13 +913,11 @@
       resultScreen.classList.remove('hidden');
     }
 
-    // Build X/Twitter Share Text (Includes deployed URL if hosted)
     function getShareText() {
-      const url = window.location.href.startsWith('http') ? `\n${window.location.href}` : '';
-      return `[채용공고 번역기 : 이 회사 가도 되나요?]\n\n내 취준 생존 유형 👉 ${currentOutcome.grade} [${currentOutcome.title}]\n최종 멘탈: ${mentalHealth}% (완벽 선긋기 ${defenseCount}회 / 함정 ${hardTrapCount + softTrapCount}회)\n\n${currentOutcome.description}${url}\n\n#채용공고번역기 #취준생 #면접밸런스게임`;
+      const url = window.location.href;
+      return `[채용공고 번역기 : 이 회사 가도 되나요?]\n\n내 취준 생존 유형 👉 ${currentOutcome.grade} [${currentOutcome.title}]\n최종 멘탈: ${mentalHealth}% (완벽 선긋기 ${defenseCount}회 / 함정 ${hardTrapCount + softTrapCount}회)\n\n${currentOutcome.description}\n\n${url}`;
     }
 
-    // Safe Clipboard Copy
     function copyToClipboard(text) {
       try {
         const textarea = document.createElement('textarea');
@@ -945,7 +934,6 @@
       }
     }
 
-    // Toast Notification
     let toastTimer = null;
     function showToast(msg) {
       toastMessage.textContent = msg;
@@ -956,7 +944,6 @@
       }, 2400);
     }
 
-    // Reset Game
     function resetGame() {
       currentIndex = 0;
       mentalHealth = 80;
@@ -970,7 +957,6 @@
       renderQuestion();
     }
 
-    // Event Listeners
     startBtn.addEventListener('click', () => {
       startScreen.classList.add('hidden');
       gameScreen.classList.remove('hidden');
