@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>채용공고 번역기 : 이 회사 가도 되나요?</title>
+
+  <!-- Open Graph & Twitter Card Meta Tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="채용공고 번역기 : 이 회사 가도 되나요?" />
+  <meta property="og:description" content="그럴싸한 직장인 화법 속에 숨은 함정을 피하고 내 멘탈을 지켜라! 15초 컷 취준 생존 3지선다 게임." />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="채용공고 번역기 : 이 회사 가도 되나요?" />
+  <meta name="twitter:description" content="말은 다 맞는데 왜 호구가 될까? 숨은 함정 3지선다로 알아보는 내 취준 생존력." />
+
+  <style>
+    :root {
+      --bg: #f4f5f7;
+      --surface: #ffffff;
+      --surface-subtle: #f9fafb;
+      --text-primary: #111827;
+      --text-secondary: #4b5563;
+      --text-muted: #9ca3af;
+      --border: #e5e7eb;
+      --accent: #111827;
+      --accent-soft: #f3f4f6;
+      --positive: #059669;
+      --positive-bg: #ecfdf5;
+      --negative: #dc2626;
+      --negative-bg: #fef2f2;
+      --neutral: #d97706;
+      --neutral-bg: #fffbeb;
+      --shadow: 0 12px 32px -8px rgba(17, 24, 39, 0.08), 0 2px 6px -1px rgba(17, 24, 39, 0.04);
+      --radius-xl: 24px;
+      --radius-lg: 16px;
+      --radius-md: 12px;
+      --radius-pill: 9999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+      background-color: var(--bg);
+      color: var(--text-primary);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px 14px;
+      line-height: 1.55;
+    }
+
+    .shell {
+      width: 100%;
+      max-width: 440px;
+      background: var(--surface);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(17, 24, 39, 0.05);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .screen {
+      display: none;
+      padding: 28px 22px 24px;
+      animation: fadeIn 0.24s ease-out;
+    }
+
+    .screen.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Intro Screen */
+    .badge-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      background: var(--accent-soft);
+      color: var(--text-secondary);
+    }
+
+    .pill.dark {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    .intro-title {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.28;
+      margin-bottom: 10px;
+    }
+
+    .intro-sub {
+      font-size: 14.5px;
+      color: var(--text-secondary);
+      margin-bottom: 22px;
+    }
+
+    .preview-box {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      margin-bottom: 24px;
+    }
+
+    .preview-label {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .preview-quote {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+    }
+
+    .preview-note {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .btn-primary {
+      width: 100%;
+      border: none;
+      background: var(--accent);
+      color: #ffffff;
+      font-size: 15.5px;
+      font-weight: 700;
+      padding: 15px 20px;
+      border-radius: var(--radius-lg);
+      cursor: pointer;
+      transition: transform 0.12s ease, opacity 0.15s ease, background-color 0.15s ease;
+    }
+
+    .btn-primary:hover {
+      background: #1f2937;
+    }
+
+    .btn-primary:active {
+      transform: scale(0.985);
+    }
+
+    .btn-secondary {
+      width: 100%;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-primary);
+      font-size: 14.5px;
+      font-weight: 600;
+      padding: 13px 18px;
+      border-radius: var(--radius-lg);
+      cursor: pointer;
+      transition: background-color 0.15s ease, transform 0.12s ease;
+    }
+
+    .btn-secondary:hover {
+      background: var(--surface-subtle);
+    }
+
+    .btn-secondary:active {
+      transform: scale(0.985);
+    }
+
+    /* Game Top Bar */
+    .top-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 10px;
+    }
+
+    .progress-track {
+      height: 5px;
+      background: #eef0f3;
+      border-radius: var(--radius-pill);
+      overflow: hidden;
+      margin-bottom: 18px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--accent);
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    .mental-box {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      margin-bottom: 18px;
+    }
+
+    .mental-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .mental-val {
+      font-variant-numeric: tabular-nums;
+    }
+
+    .mental-track {
+      position: relative;
+      height: 8px;
+      background: #e5e7eb;
+      border-radius: var(--radius-pill);
+      overflow: hidden;
+    }
+
+    .mental-fill {
+      height: 100%;
+      width: 80%;
+      background: var(--positive);
+      border-radius: var(--radius-pill);
+      transition: width 0.35s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.25s ease;
+    }
+
+    /* Question Card */
+    .q-category {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+
+    .q-situation {
+      background: var(--surface-subtle);
+      border-left: 3px solid var(--accent);
+      padding: 12px 14px;
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+    }
+
+    .q-prompt {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+
+    .choices {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .choice-btn {
+      width: 100%;
+      text-align: left;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 13px 14px;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-primary);
+      cursor: pointer;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      transition: border-color 0.15s ease, background-color 0.15s ease, transform 0.12s ease;
+    }
+
+    .choice-btn:hover:not(:disabled) {
+      border-color: #9ca3af;
+      background: var(--surface-subtle);
+    }
+
+    .choice-btn:active:not(:disabled) {
+      transform: scale(0.99);
+    }
+
+    .choice-btn:disabled {
+      cursor: default;
+    }
+
+    .choice-key {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      background: var(--accent-soft);
+      color: var(--text-primary);
+      font-size: 12px;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+
+    .choice-btn.picked-pos {
+      border-color: var(--positive);
+      background: var(--positive-bg);
+    }
+
+    .choice-btn.picked-pos .choice-key {
+      background: var(--positive);
+      color: #ffffff;
+    }
+
+    .choice-btn.picked-neg {
+      border-color: var(--negative);
+      background: var(--negative-bg);
+    }
+
+    .choice-btn.picked-neg .choice-key {
+      background: var(--negative);
+      color: #ffffff;
+    }
+
+    .choice-btn.picked-neu {
+      border-color: var(--neutral);
+      background: var(--neutral-bg);
+    }
+
+    .choice-btn.picked-neu .choice-key {
+      background: var(--neutral);
+      color: #ffffff;
+    }
+
+    .choice-btn.dimmed:not(.picked-pos):not(.picked-neg):not(.picked-neu) {
+      opacity: 0.45;
+    }
+
+    /* Feedback Panel */
+    .feedback-card {
+      margin-top: 16px;
+      padding: 15px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      background: var(--surface-subtle);
+      display: none;
+      animation: fadeIn 0.2s ease-out;
+    }
+
+    .feedback-card.visible {
+      display: block;
+    }
+
+    .feedback-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+
+    .delta-badge {
+      font-size: 12.5px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+    }
+
+    .delta-pos {
+      background: var(--positive-bg);
+      color: var(--positive);
+    }
+
+    .delta-neg {
+      background: var(--negative-bg);
+      color: var(--negative);
+    }
+
+    .delta-neu {
+      background: var(--neutral-bg);
+      color: var(--neutral);
+    }
+
+    .feedback-tag {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-secondary);
+    }
+
+    .feedback-text {
+      font-size: 13.5px;
+      color: var(--text-primary);
+      margin-bottom: 14px;
+    }
+
+    /* Result Screen */
+    .result-capture-area {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px 18px;
+      margin-bottom: 16px;
+    }
+
+    .grade-chip {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 5px 11px;
+      border-radius: var(--radius-pill);
+      background: var(--accent);
+      color: #ffffff;
+      margin-bottom: 10px;
+    }
+
+    .result-title {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      margin-bottom: 8px;
+    }
+
+    .result-mental {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      margin-bottom: 14px;
+    }
+
+    .result-desc {
+      font-size: 14px;
+      color: var(--text-primary);
+      background: var(--surface-subtle);
+      padding: 13px 14px;
+      border-radius: var(--radius-md);
+      margin-bottom: 14px;
+    }
+
+    .result-footer-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11.5px;
+      color: var(--text-muted);
+      border-top: 1px solid #f0f1f4;
+      padding-top: 10px;
+    }
+
+    .action-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .action-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 22px;
+      left: 50%;
+      transform: translateX(-50%) translateY(16px);
+      background: var(--accent);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 16px;
+      border-radius: var(--radius-pill);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      z-index: 50;
+      white-space: nowrap;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <!-- INTRO -->
+    <section id="screen-intro" class="screen active">
+      <div class="badge-row">
+        <span class="pill dark">취준 생존 시뮬레이터</span>
+        <span class="pill">총 6라운드 · 15초 컷</span>
+      </div>
+      <h1 class="intro-title">채용공고 번역기<br />이 회사 가도 되나요?</h1>
+      <p class="intro-sub">
+        선택지는 셋 다 그럴싸한 직장인 화법입니다.<br />
+        한 끗 차이로 호구가 될지, 선을 지킬지 선택하세요.
+      </p>
+
+      <div class="preview-box">
+        <div class="preview-label">SYSTEM RULE</div>
+        <div class="preview-quote">시작 멘탈 80% · 최대 120% 초회복 가능</div>
+        <div class="preview-note">
+          예의 바른 척하면서 손해만 보는 문장들을 골라내면 멘탈이 차오르고,
+          은근히 여지를 남기면 조용히 깎입니다.
+        </div>
+      </div>
+
+      <button id="btn-start" class="btn-primary">입사지원서 넣기</button>
+    </section>
+
+    <!-- GAME -->
+    <section id="screen-game" class="screen">
+      <div class="top-meta">
+        <span id="q-counter">라운드 1 / 6</span>
+        <span id="q-mode-label">공고 해독</span>
+      </div>
+      <div class="progress-track">
+        <div id="progress-fill" class="progress-fill"></div>
+      </div>
+
+      <div class="mental-box">
+        <div class="mental-header">
+          <span>내 멘탈 잔량</span>
+          <span id="mental-val" class="mental-val">80%</span>
+        </div>
+        <div class="mental-track">
+          <div id="mental-fill" class="mental-fill"></div>
+        </div>
+      </div>
+
+      <div id="q-category" class="q-category"></div>
+      <div id="q-situation" class="q-situation"></div>
+      <div id="q-prompt" class="q-prompt"></div>
+
+      <div id="choices" class="choices"></div>
+
+      <div id="feedback" class="feedback-card">
+        <div class="feedback-top">
+          <span id="delta-badge" class="delta-badge"></span>
+          <span id="feedback-tag" class="feedback-tag"></span>
+        </div>
+        <p id="feedback-text" class="feedback-text"></p>
+        <button id="btn-next" class="btn-primary">다음 상황 보기</button>
+      </div>
+    </section>
+
+    <!-- RESULT -->
+    <section id="screen-result" class="screen">
+      <div id="capture-card" class="result-capture-area">
+        <span id="res-grade" class="grade-chip"></span>
+        <h2 id="res-title" class="result-title"></h2>
+        <div id="res-mental" class="result-mental"></div>
+        <p id="res-desc" class="result-desc"></p>
+        <div class="result-footer-meta">
+          <span>채용공고 번역기</span>
+          <span>현실 방어 리포트</span>
+        </div>
+      </div>
+
+      <div class="action-stack">
+        <button id="btn-tweet" class="btn-primary">X(트위터)에 결과 공유하기</button>
+        <div class="action-row">
+          <button id="btn-copy" class="btn-secondary">문구 복사</button>
+          <button id="btn-save-img" class="btn-secondary">이미지 저장</button>
+        </div>
+        <button id="btn-restart" class="btn-secondary">다시 테스트하기</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast"></div>
+
+  <script>
+    const INITIAL_MENTAL = 80;
+    const MIN_MENTAL = 0;
+    const MAX_MENTAL = 120;
+
+    // Each question has 3 realistic office-tone choices:
+    // type: "pos" (+12~15), "neu" (-5~+5), "neg" (-18~-22)
+    const QUESTIONS = [
+      {
+        mode: "공고 해독",
+        category: "복리후생 · 조직문화",
+        situation: "“수평적 소통을 지향하며, 구성원 모두가 오너십을 가지고 주도적으로 일하는 유연한 팀입니다.”",
+        prompt: "이 문장을 읽고 지원 여부를 결정할 때 가장 현실적인 판단은?",
+        choices: [
+          {
+            key: "A",
+            type: "neu",
+            delta: -5,
+            tag: "애매한 기대",
+            text: "오너십이 있으면 의사결정에 참여할 수 있다는 뜻이니, 면접에서 R&R만 한 번 더 확인해 봐야겠어요.",
+            reason: "‘오너십’은 권한보다 책임 전가와 야근 정당화로 쓰이는 경우가 많습니다. R&R을 묻는 건 좋지만 기대치를 너무 높게 잡았어요."
+          },
+          {
+            key: "B",
+            type: "pos",
+            delta: 15,
+            tag: "현실 직역 성공",
+            text: "직급 호칭만 편할 뿐 사수나 매뉴얼이 부재할 가능성이 높으니, 온보딩 체계와 평가 기준을 먼저 체크해야겠어요.",
+            reason: "정중한 어조를 유지하면서도 ‘수평적 = 사수·체계 부재 가능성’을 정확히 짚어내 멘탈을 지켜냈습니다."
+          },
+          {
+            key: "C",
+            type: "neg",
+            delta: -20,
+            tag: "셀프 오너십 승낙",
+            text: "내 일처럼 책임감을 갖고 일할 수 있는 환경 같아서, 초기 세팅부터 바쁘더라도 적극적으로 맞춰가겠습니다.",
+            reason: "벌써부터 ‘초기 세팅 바쁨 = 내 몫’으로 받아들였습니다. 입사 첫날부터 주말 출근 각이 잡히고 있습니다."
+          }
+        ]
+      },
+      {
+        mode: "공고 해독",
+        category: "자격요건 · 우대사항",
+        situation: "“빠르게 변화하는 환경에 적응력이 뛰어나고, 모호한 상황에서도 스스로 답을 찾아 실행하는 분”",
+        prompt: "채용공고의 이 요구사항을 가장 냉정하게 해석한 것은?",
+        choices: [
+          {
+            key: "A",
+            type: "neg",
+            delta: -20,
+            tag: "기획 변경 수용기",
+            text: "트렌드가 빠른 업계이니 방향이 바뀌어도 유연하게 조율하며 빠르게 결과물을 만들어내는 역량을 어필해야겠어요.",
+            reason: "‘방향이 바뀐다’는 건 금요일 오후 5시에 기획이 통째로 엎어진다는 뜻입니다. 유연함이라는 이름으로 야근을 예약하셨어요."
+          },
+          {
+            key: "B",
+            type: "pos",
+            delta: 12,
+            tag: "구조 파악 완료",
+            text: "요구사항이 명확히 정리되지 않은 채 업무가 내려올 확률이 높으니, 실제 주간 업무 흐름과 피드백 주기를 질문해야겠어요.",
+            reason: "감정 소모 대신 ‘업무가 어떤 형태로 내려오는지’라는 실질적 리스크를 확인하려 한 깔끔한 판단입니다."
+          },
+          {
+            key: "C",
+            type: "neu",
+            delta: 5,
+            tag: "조건부 수용",
+            text: "스스로 찾아가는 과정은 배움이 될 수 있으니, 최소한의 가이드라인이 있는지 면접에서 넌지시 물어볼게요.",
+            reason: "배움의 여지를 남기면서도 가이드라인 유무를 확인하려는 균형 잡힌 접근입니다."
+          }
+        ]
+      },
+      {
+        mode: "공고 해독",
+        category: "근무조건 · 보상",
+        situation: "“연봉은 면접 후 협의(내규에 따름)이며, 성과에 따른 인센티브 및 탄력근무제 운영 중”",
+        prompt: "이 조건을 볼 때 가장 먼저 점검해야 할 포인트는?",
+        choices: [
+          {
+            key: "A",
+            type: "pos",
+            delta: 15,
+            tag: "조건 명문화 방어",
+            text: "구두 협의나 ‘내규’는 입사 후 달라질 수 있으므로, 기본급 구성과 포괄임금 적용 여부, 인센티브 지급 기준을 확인해야 합니다.",
+            reason: "‘내규’와 ‘인센티브’라는 모호한 말 뒤에 숨은 기본급·수당 구조를 정확히 짚었습니다. 멘탈 방어 성공!"
+          },
+          {
+            key: "B",
+            type: "neg",
+            delta: -18,
+            tag: "희망고문 당첨",
+            text: "초봉이 조금 낮게 시작하더라도 성과를 내면 인센티브로 만회할 수 있으니, 일단 처우에 연연하지 않고 역량을 보여주겠습니다.",
+            reason: "‘성과급은 회사가 잘될 때만, 기본급은 매달 고정’이라는 진리를 잊으셨습니다. 처우에 연연하지 않으면 통장이 연연합니다."
+          },
+          {
+            key: "C",
+            type: "neu",
+            delta: -5,
+            tag: "눈치 보는 질문",
+            text: "탄력근무제가 있으면 출퇴근 시간은 편할 것 같으니, 연봉은 합격 후에 조율해도 괜찮지 않을까요?",
+            reason: "합격 후에 연봉을 조율하려 하면 협상력이 크게 떨어집니다. 탄력근무제의 코어타임도 함께 봐야 해요."
+          }
+        ]
+      },
+      {
+        mode: "극한 밸런스",
+        category: "출퇴근 · 워라밸",
+        situation: "최종합격 직전, 두 가지 근로 조건 중 하나만 선택해야 합니다.",
+        prompt: "덜 소모적인 쪽을 고른다면?",
+        choices: [
+          {
+            key: "A",
+            type: "neu",
+            delta: 5,
+            tag: "시간 계산 중",
+            text: "주 4일제 월~목 10.5시간 근무에 왕복 2시간 통근: 주 4일은 쉬지만 출근하는 날은 하루 12.5시간이 집 밖입니다.",
+            reason: "하루 12.5시간 외출은 평일 저녁의 삶을 통째로 내어주는 구조입니다. 쉬는 날 몰아서 회복할 수 있을지가 관건이죠."
+          },
+          {
+            key: "B",
+            type: "pos",
+            delta: 15,
+            tag: "일상 보존 성공",
+            text: "주 5일 정시 퇴근에 도보·단거리 통근이지만, 월 1회 사내 전체 워크숍(토요일 반일)이 명시되어 있습니다.",
+            reason: "매일의 출퇴근 피로와 야근이 적고 일정이 예측 가능하다면, 비정기 이벤트보다 일상 리듬을 지키는 편이 유리합니다."
+          },
+          {
+            key: "C",
+            type: "neg",
+            delta: -20,
+            tag: "주말 반납 예약",
+            text: "주 5일 칼퇴라고 적혀 있지만, 매주 토요일 오전 선택형 사내 독서·스터디 모임이 사실상 필수 분위기로 운영됩니다.",
+            reason: "‘선택형인데 필수 분위기’는 휴일 오전의 심리적 압박을 매주 반복시킵니다. 주말이 쉬는 주말이 아니게 됩니다."
+          }
+        ]
+      },
+      {
+        mode: "극한 밸런스",
+        category: "면접 압박 · 질문",
+        situation: "면접장에서 예상치 못한 질문이 이어지고 있습니다.",
+        prompt: "가장 현명하게 받아넘긴 답변은?",
+        choices: [
+          {
+            key: "A",
+            type: "neg",
+            delta: -18,
+            tag: "과잉 해명 함정",
+            text: "“포트폴리오를 안 보신 것 같아 말씀드리면, 이 프로젝트에서 제가 맡은 역할은…”이라며 준비한 자료를 길게 설명한다.",
+            reason: "면접관이 안 본 걸 억지로 끌고 들어가면 흐름만 어색해지기 쉽습니다. 핵심만 짧게 연결하는 편이 낫습니다."
+          },
+          {
+            key: "B",
+            type: "pos",
+            delta: 14,
+            tag: "핵심 연결 성공",
+            text: "“현재 실무에서 가장 중요하게 보시는 역량과 연결해 말씀드리면, 최근 진행한 협업 사례에서 이 부분을 개선했습니다.”",
+            reason: "상대의 질문 의도에 맞춰 본인의 강점을 짧고 명료하게 연결한 깔끔한 대응입니다."
+          },
+          {
+            key: "C",
+            type: "neu",
+            delta: -5,
+            tag: "방어적 태도",
+            text: "“서류에 이미 자세히 적어두긴 했는데, 혹시 어떤 부분이 궁금하신지 구체적으로 말씀해 주실 수 있을까요?”",
+            reason: "틀린 말은 아니지만 면접관에게 다소 날카롭거나 방어적으로 들릴 여지가 있습니다."
+          }
+        ]
+      },
+      {
+        mode: "극한 밸런스",
+        category: "첫 출근 · 온보딩",
+        situation: "입사 첫날 아침, 자리에 앉자마자 마주한 상황입니다.",
+        prompt: "멘탈을 가장 잘 지켜내는 대처는?",
+        choices: [
+          {
+            key: "A",
+            type: "pos",
+            delta: 15,
+            tag: "우선순위 정렬",
+            text: "전달받은 자료와 요청 사항을 한눈에 목록화한 뒤, 이번 주 안에 완료해야 할 핵심 우선순위 2~3가지를 먼저 확인한다.",
+            reason: "쏟아지는 정보에 압도되지 않고 우선순위를 정리한 가장 현실적이고 단단한 첫걸음입니다."
+          },
+          {
+            key: "B",
+            type: "neg",
+            delta: -20,
+            tag: "첫날부터 과부하",
+            text: "“오늘 안에 최대한 다 파악해 두겠습니다”라고 말한 뒤, 점심도 거른 채 방대한 문서를 처음부터 끝까지 혼자 정독한다.",
+            reason: "첫날부터 무리하면 페이스 조절에 실패하기 쉽습니다. 당장 필요한 맥락부터 파악하는 것이 현명합니다."
+          },
+          {
+            key: "C",
+            type: "neu",
+            delta: 0,
+            tag: "관망 모드",
+            text: "아직 익숙하지 않으니 조용히 주변 흐름을 지켜보며, 누군가 말을 걸어줄 때까지 기다린다.",
+            reason: "눈치를 살피며 무난하게 넘어가지만, 필요한 기본 안내나 계정 세팅 요청은 제때 하는 것이 좋습니다."
+          }
+        ]
+      }
+    ];
+
+    const RESULT_TIERS = [
+      {
+        min: 100,
+        grade: "S등급 · 초회복 완료",
+        title: "말발에 안 넘어가고 선 긋는 프로 방어러",
+        desc: "그럴싸한 미사여구나 은근한 눈치 게임에도 흔들리지 않고 핵심과 리스크를 정확히 짚어냈습니다. 멘탈 게이지까지 풀충전 상태입니다."
+      },
+      {
+        min: 75,
+        grade: "A등급 · 현실 감각 양호",
+        title: "적당히 눈치 챙기며 버티는 스마트 생존자",
+        desc: "대부분의 함정은 잘 피해 갔지만 몇몇 상황에서는 여지를 남겼습니다. 조건과 경계를 조금만 더 명확히 하면 훨씬 편해질 타입입니다."
+      },
+      {
+        min: 45,
+        grade: "B등급 · 방어선 흔들림",
+        title: "착한 사람 콤플렉스 경계선 위의 실무자",
+        desc: "의도는 좋았지만 상대의 페이스를 맞춰주다 보니 내 몫이 조금씩 늘어난 상태입니다. ‘네’라고 하기 전에 한 박자만 쉬어가 보세요."
+      },
+      {
+        min: -999,
+        grade: "C등급 · 멘탈 주의보",
+        title: "호의와 열정을 전부 선반납한 호구 경보",
+        desc: "말의 뉘앙스 뒤에 숨은 현실 조건을 놓치고 스스로 부담을 떠안는 패턴이 보입니다. 지원 전 조건 체크리스트부터 한 번 더 점검해 보세요."
+      }
+    ];
+
+    let state = {
+      index: 0,
+      mental: INITIAL_MENTAL,
+      answered: false
+    };
+
+    const el = {
+      intro: document.getElementById("screen-intro"),
+      game: document.getElementById("screen-game"),
+      result: document.getElementById("screen-result"),
+      btnStart: document.getElementById("btn-start"),
+      qCounter: document.getElementById("q-counter"),
+      qModeLabel: document.getElementById("q-mode-label"),
+      progressFill: document.getElementById("progress-fill"),
+      mentalVal: document.getElementById("mental-val"),
+      mentalFill: document.getElementById("mental-fill"),
+      qCategory: document.getElementById("q-category"),
+      qSituation: document.getElementById("q-situation"),
+      qPrompt: document.getElementById("q-prompt"),
+      choices: document.getElementById("choices"),
+      feedback: document.getElementById("feedback"),
+      deltaBadge: document.getElementById("delta-badge"),
+      feedbackTag: document.getElementById("feedback-tag"),
+      feedbackText: document.getElementById("feedback-text"),
+      btnNext: document.getElementById("btn-next"),
+      resGrade: document.getElementById("res-grade"),
+      resTitle: document.getElementById("res-title"),
+      resMental: document.getElementById("res-mental"),
+      resDesc: document.getElementById("res-desc"),
+      btnTweet: document.getElementById("btn-tweet"),
+      btnCopy: document.getElementById("btn-copy"),
+      btnSaveImg: document.getElementById("btn-save-img"),
+      btnRestart: document.getElementById("btn-restart"),
+      toast: document.getElementById("toast")
+    };
+
+    function showToast(msg) {
+      el.toast.textContent = msg;
+      el.toast.classList.add("show");
+      clearTimeout(showToast._t);
+      showToast._t = setTimeout(() => {
+        el.toast.classList.remove("show");
+      }, 2100);
+    }
+
+    function switchScreen(target) {
+      [el.intro, el.game, el.result].forEach((s) => s.classList.remove("active"));
+      target.classList.add("active");
+    }
+
+    function updateMentalUI() {
+      const clamped = Math.max(MIN_MENTAL, Math.min(MAX_MENTAL, state.mental));
+      state.mental = clamped;
+      el.mentalVal.textContent = `${clamped}%`;
+
+      // Bar width scaled to 120% max for visual clarity
+      const widthPct = Math.min(100, (clamped / MAX_MENTAL) * 100);
+      el.mentalFill.style.width = `${widthPct}%`;
+
+      if (clamped >= 80) {
+        el.mentalFill.style.backgroundColor = "#059669";
+      } else if (clamped >= 45) {
+        el.mentalFill.style.backgroundColor = "#d97706";
+      } else {
+        el.mentalFill.style.backgroundColor = "#dc2626";
+      }
+    }
+
+    function renderQuestion() {
+      state.answered = false;
+      const q = QUESTIONS[state.index];
+      const total = QUESTIONS.length;
+
+      el.qCounter.textContent = `라운드 ${state.index + 1} / ${total}`;
+      el.qModeLabel.textContent = q.mode;
+      el.progressFill.style.width = `${(state.index / total) * 100}%`;
+
+      el.qCategory.textContent = q.category;
+      el.qSituation.textContent = q.situation;
+      el.qPrompt.textContent = q.prompt;
+
+      el.feedback.classList.remove("visible");
+      el.btnNext.textContent = state.index === total - 1 ? "결과 확인하기" : "다음 상황 보기";
+
+      el.choices.innerHTML = "";
+      q.choices.forEach((choice, idx) => {
+        const btn = document.createElement("button");
+        btn.className = "choice-btn";
+        btn.type = "button";
+        btn.innerHTML = `
+          <span class="choice-key">${choice.key}</span>
+          <span>${choice.text}</span>
+        `;
+        btn.addEventListener("click", () => handleSelect(idx, btn));
+        el.choices.appendChild(btn);
+      });
+    }
+
+    function handleSelect(choiceIdx, clickedBtn) {
+      if (state.answered) return;
+      state.answered = true;
+
+      const q = QUESTIONS[state.index];
+      const choice = q.choices[choiceIdx];
+
+      state.mental += choice.delta;
+      updateMentalUI();
+
+      const allBtns = el.choices.querySelectorAll(".choice-btn");
+      allBtns.forEach((b, i) => {
+        b.disabled = true;
+        if (i !== choiceIdx) {
+          b.classList.add("dimmed");
+        }
+      });
+
+      const pickedClass =
+        choice.type === "pos" ? "picked-pos" : choice.type === "neg" ? "picked-neg" : "picked-neu";
+      clickedBtn.classList.add(pickedClass);
+
+      el.deltaBadge.className = "delta-badge";
+      if (choice.delta > 0) {
+        el.deltaBadge.classList.add("delta-pos");
+        el.deltaBadge.textContent = `멘탈 +${choice.delta}%`;
+      } else if (choice.delta < 0) {
+        el.deltaBadge.classList.add("delta-neg");
+        el.deltaBadge.textContent = `멘탈 ${choice.delta}%`;
+      } else {
+        el.deltaBadge.classList.add("delta-neu");
+        el.deltaBadge.textContent = "멘탈 0%";
+      }
+
+      el.feedbackTag.textContent = choice.tag;
+      el.feedbackText.textContent = choice.reason;
+      el.feedback.classList.add("visible");
+    }
+
+    function getTier() {
+      return RESULT_TIERS.find((t) => state.mental >= t.min) || RESULT_TIERS[RESULT_TIERS.length - 1];
+    }
+
+    function getShareText() {
+      const tier = getTier();
+      const url = window.location.href;
+      return `[채용공고 번역기] 내 최종 멘탈 ${state.mental}% · ${tier.grade}
+"${tier.title}"
+${url}`;
+    }
+
+    function renderResult() {
+      el.progressFill.style.width = "100%";
+      const tier = getTier();
+      el.resGrade.textContent = tier.grade;
+      el.resTitle.textContent = tier.title;
+      el.resMental.textContent = `최종 멘탈 잔량: ${state.mental}% (시작 80%)`;
+      el.resDesc.textContent = tier.desc;
+      switchScreen(el.result);
+    }
+
+    function downloadResultImage() {
+      const tier = getTier();
+      const canvas = document.createElement("canvas");
+      canvas.width = 1080;
+      canvas.height = 1080;
+      const ctx = canvas.getContext("2d");
+
+      // Background
+      ctx.fillStyle = "#f4f5f7";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Card container
+      const pad = 72;
+      const cardW = canvas.width - pad * 2;
+      const cardH = canvas.height - pad * 2;
+      ctx.fillStyle = "#ffffff";
+      ctx.beginPath();
+      ctx.roundRect(pad, pad, cardW, cardH, 36);
+      ctx.fill();
+
+      // Grade pill
+      ctx.fillStyle = "#111827";
+      ctx.beginPath();
+      ctx.roundRect(132, 145, 360, 52, 26);
+      ctx.fill();
+
+      ctx.fillStyle = "#ffffff";
+      ctx.font = "bold 24px -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif";
+      ctx.fillText(tier.grade, 162, 179);
+
+      // Title
+      ctx.fillStyle = "#111827";
+      ctx.font = "bold 46px -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif";
+      wrapCanvasText(ctx, tier.title, 132, 275, cardW - 120, 62);
+
+      // Mental score
+      ctx.fillStyle = "#4b5563";
+      ctx.font = "600 28px -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif";
+      ctx.fillText(`최종 멘탈 잔량: ${state.mental}%`, 132, 430);
+
+      // Description box
+      ctx.fillStyle = "#f9fafb";
+      ctx.beginPath();
+      ctx.roundRect(132, 475, cardW - 120, 310, 24);
+      ctx.fill();
+
+      ctx.fillStyle = "#111827";
+      ctx.font = "500 28px -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif";
+      wrapCanvasText(ctx, tier.desc, 168, 535, cardW - 192, 46);
+
+      // Footer
+      ctx.fillStyle = "#9ca3af";
+      ctx.font = "600 22px -apple-system, 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif";
+      ctx.fillText("채용공고 번역기 : 이 회사 가도 되나요?", 132, 885);
+
+      const link = document.createElement("a");
+      link.download = "job-translator-result.png";
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+      showToast("결과 카드 이미지가 저장되었습니다.");
+    }
+
+    function wrapCanvasText(ctx, text, x, y, maxWidth, lineHeight) {
+      const words = text.split(" ");
+      let line = "";
+      let curY = y;
+      for (let i = 0; i < words.length; i++) {
+        const testLine = line + words[i] + " ";
+        if (ctx.measureText(testLine).width > maxWidth && i > 0) {
+          ctx.fillText(line.trim(), x, curY);
+          line = words[i] + " ";
+          curY += lineHeight;
+        } else {
+          line = testLine;
+        }
+      }
+      if (line.trim()) {
+        ctx.fillText(line.trim(), x, curY);
+      }
+    }
+
+    function startGame() {
+      state.index = 0;
+      state.mental = INITIAL_MENTAL;
+      updateMentalUI();
+      renderQuestion();
+      switchScreen(el.game);
+    }
+
+    el.btnStart.addEventListener("click", startGame);
+
+    el.btnNext.addEventListener("click", () => {
+      if (state.index < QUESTIONS.length - 1) {
+        state.index += 1;
+        renderQuestion();
+      } else {
+        renderResult();
+      }
+    });
+
+    el.btnTweet.addEventListener("click", () => {
+      const intentUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(getShareText())}`;
+      window.open(intentUrl, "_blank", "noopener,noreferrer");
+    });
+
+    el.btnCopy.addEventListener("click", async () => {
+      const text = getShareText();
+      try {
+        await navigator.clipboard.writeText(text);
+        showToast("공유 문구가 클립보드에 복사되었습니다.");
+      } catch (_) {
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        document.body.removeChild(ta);
+        showToast("공유 문구가 클립보드에 복사되었습니다.");
+      }
+    });
+
+    el.btnSaveImg.addEventListener("click", downloadResultImage);
+    el.btnRestart.addEventListener("click", startGame);
+  </script>
+</body>
+</html>
