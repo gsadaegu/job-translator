@@ -72,7 +72,7 @@
     @media (min-width: 480px) {
       .app-shell {
         min-height: 750px;
-        max-height: 840px;
+        max-height: 860px;
         border-radius: 28px;
         border: 1px solid #E5E8EB;
         box-shadow: 0 20px 48px -12px rgba(25, 31, 40, 0.08);
@@ -261,7 +261,7 @@
         </div>
       </div>
 
-      <!-- Main Reading & Choice Area (Tighter spacing, clear hierarchy) -->
+      <!-- Main Reading & Choice Area -->
       <div id="questionCard" class="mt-4 flex-1 flex flex-col justify-between">
         <div>
           <!-- Separated Job Posting / Interview Quote Card -->
@@ -284,7 +284,7 @@
             이 문장 봤을 때 드는 생각은?
           </h2>
 
-          <!-- Scannable, Concise 3 Choices (No heavy quotes, spacious line-height) -->
+          <!-- Scannable, Concise 3 Choices -->
           <div class="space-y-2.5" id="choicesContainer">
             <button id="choiceABtn" class="tactile-btn w-full text-left px-4 py-3.5 rounded-2xl border border-slate-200 hover:border-tossblue bg-white hover:bg-blue-50/30 shadow-[0_1px_4px_rgba(0,0,0,0.02)] cursor-pointer group">
               <div class="flex items-start gap-3">
@@ -350,7 +350,7 @@
       </div>
     </section>
 
-    <!-- ==================== SCREEN 3: RESULT SCREEN (X SHARE CARD) ==================== -->
+    <!-- ==================== SCREEN 3: RESULT SCREEN (X SHARE CARD + GEMINI CTA) ==================== -->
     <section id="resultScreen" class="hidden flex-1 flex flex-col justify-between px-5 py-5 overflow-y-auto no-scrollbar animate-enter">
       <!-- Clean Editorial Share Card -->
       <div id="captureCard" class="bg-white rounded-3xl p-5 border border-slate-200 shadow-[0_8px_24px_rgba(25,31,40,0.06)] relative overflow-hidden">
@@ -431,8 +431,30 @@
         </div>
       </div>
 
-      <!-- Action Buttons -->
-      <div class="space-y-2 mt-4">
+      <!-- Gemini Coaching CTA + Share Actions -->
+      <div class="space-y-2.5 mt-4">
+        <a
+          id="geminiCtaBtn"
+          href="https://gemini.google/students/?utm_source=student&utm_medium=social&utm_campaign=microsite_campus_daegu-ambassador"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="tactile-btn block w-full rounded-2xl p-4 bg-gradient-to-r from-[#1B64DA] via-[#3182F6] to-[#6366F1] text-white shadow-[0_8px_20px_-6px_rgba(49,130,246,0.48)] cursor-pointer no-underline"
+        >
+          <div class="flex items-center justify-between gap-3">
+            <div class="space-y-0.5 text-left">
+              <div class="inline-flex items-center gap-1 text-[10.5px] font-extrabold bg-white/20 px-2 py-0.5 rounded-full">
+                <span>✨ 대학생 · 취준생 무료 가입 혜택</span>
+              </div>
+              <div class="text-[14.5px] font-extrabold tracking-tight leading-snug pt-0.5">
+                Gemini한테 실전 면접 코칭 받으러 가기 →
+              </div>
+              <div class="text-[11.5px] font-medium text-blue-100">
+                자소서 첨삭부터 압박 면접 모의질문까지 무료로 준비하기
+              </div>
+            </div>
+          </div>
+        </a>
+
         <button id="tweetShareBtn" class="tactile-btn w-full py-3.5 px-4 bg-xblack hover:bg-slate-800 text-white font-bold text-[14px] rounded-2xl flex items-center justify-center gap-2 cursor-pointer">
           <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
@@ -461,7 +483,7 @@
   <script>
     /**
      * 채용공고 번역기 : 이 회사 가도 되나요?
-     * High-Readability Edition (Highlighted keywords + Concise 2-line choices)
+     * High-Readability Edition + Gemini Student Campaign CTA
      */
     const QUESTIONS = [
       {
